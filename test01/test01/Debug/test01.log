@@ -1,0 +1,2 @@
+﻿  main.cpp
+f:\git\opencvtest\test01\test01\main.cpp : fatal error C1041: cannot open program database 'F:\git\OpencvTest\test01\test01\Debug\vc140.idb'; if multiple CL.EXE write to the same .PDB file, please use /FS
