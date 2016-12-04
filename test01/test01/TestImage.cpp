@@ -27,3 +27,38 @@ void TestImage::resizeTest()
 	cvReleaseImage(&pSrcImage);
 	cvReleaseImage(&pDesImage);
 }
+
+IplImage* g_pSrcImage, *g_pCannyImg;
+const char* pstrWindowCannyTitle = "Canny±ßÔµ¼ì²â";
+
+void on_trackbar_cb(int threshold)
+{
+	cvCanny(g_pSrcImage, g_pCannyImg, threshold, threshold * 3, 3);
+	cvShowImage(pstrWindowCannyTitle, g_pCannyImg);
+}
+
+void TestImage::cannyTest()
+{
+	//const char* pstrSrcImageName = "res/02/lena.jpg";
+	const char* pstrSrcImageName = "res/01/girl.png";
+	const char* pstrWindowSrcTitle = "Ô­Í¼";
+	const char* pstrWindowToolBar = "Threshold";
+
+	g_pSrcImage = cvLoadImage(pstrSrcImageName, CV_LOAD_IMAGE_GRAYSCALE);
+	g_pCannyImg = cvCreateImage(cvGetSize(g_pSrcImage), IPL_DEPTH_8U, 1);
+
+	cvNamedWindow(pstrWindowSrcTitle, CV_WINDOW_AUTOSIZE);
+	cvNamedWindow(pstrWindowCannyTitle, CV_WINDOW_AUTOSIZE);
+
+	int nThreasholdEge = 1;
+	cvCreateTrackbar(pstrWindowToolBar, pstrWindowCannyTitle, &nThreasholdEge, 100, on_trackbar_cb);
+
+	cvShowImage(pstrWindowSrcTitle, g_pSrcImage);
+	on_trackbar_cb(1);
+
+	cvWaitKey();
+	/*cvDestroyWindow(pstrWindowSrcTitle);
+	cvDestroyWindow(pstrWindowCannyTitle);*/
+	cvReleaseImage(&g_pSrcImage);
+	cvReleaseImage(&g_pCannyImg);
+}

@@ -22,7 +22,8 @@ int main(int argc, char** argv)
 	//testLoadPic();
 
 	TestImage image;
-	image.resizeTest();
+	//image.resizeTest();
+	image.cannyTest();
 
 	cvWaitKey(0);
 	return 0;

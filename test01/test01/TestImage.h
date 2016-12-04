@@ -6,5 +6,6 @@ public:
 	~TestImage() {};
 
 	void resizeTest();
+	void cannyTest();
 };
 
