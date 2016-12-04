@@ -1,9 +1,10 @@
-﻿  main.cpp
-  ImageTest.cpp
+﻿  TestImage.cpp
+TestImage.cpp(12): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+TestImage.cpp(13): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   Generating code
-  95 of 229 functions (41.5%) were compiled, the rest were copied from previous compilation.
+  2 of 195 functions ( 1.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    14 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  test01.vcxproj -> E:\git\OpencvTest\test01\Release\test01.exe
-  test01.vcxproj -> E:\git\OpencvTest\test01\Release\test01.pdb (Full PDB)
+  test01.vcxproj -> F:\git\OpencvTest\test01\Release\test01.exe
+  test01.vcxproj -> F:\git\OpencvTest\test01\Release\test01.pdb (Full PDB)

@@ -1,3 +1,5 @@
+ide: vs2015
+
 debug's library
 ----------------------------
 opencv_calib3d2413d.lib

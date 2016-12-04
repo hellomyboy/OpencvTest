@@ -1,5 +1,6 @@
 ﻿#include <cv.h>
 #include <highgui.h>
+#include "TestImage.h"
 using namespace std;
 
 extern void test_image_process();
@@ -18,7 +19,10 @@ int main(int argc, char** argv)
 	//roi_addimage();
 	// LinearBlending();
 
-	testLoadPic();
+	//testLoadPic();
+
+	TestImage image;
+	image.resizeTest();
 
 	cvWaitKey(0);
 	return 0;
