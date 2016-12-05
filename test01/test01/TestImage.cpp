@@ -62,3 +62,41 @@ void TestImage::cannyTest()
 	cvReleaseImage(&g_pSrcImage);
 	cvReleaseImage(&g_pCannyImg);
 }
+
+IplImage* pGrayImage = NULL, *pBinaryImage = NULL;
+void binaryimage_trackbar_callback(int pos)
+{
+	cvThreshold(pGrayImage, pBinaryImage, pos, 255, CV_THRESH_BINARY);
+	cvShowImage("二值图像", pBinaryImage);
+}
+
+// 二值图像测试
+void TestImage::binaryImageTest()
+{
+	const char* imagePath = "res/01/girl.png";
+	IplImage* pSrcImage = cvLoadImage(imagePath, CV_LOAD_IMAGE_UNCHANGED);
+	pGrayImage = cvCreateImage(cvGetSize(pSrcImage), IPL_DEPTH_8U, 1);
+	cvCvtColor(pSrcImage, pGrayImage, CV_BGR2GRAY); 
+
+	pBinaryImage = cvCreateImage(cvGetSize(pGrayImage), IPL_DEPTH_8U, 1);
+
+	//std::cout << "size(srcImage):" << cvGetSize(pSrcImage).width << "," << cvGetSize(pSrcImage).height << std::endl;
+	//std::cout << "size(grayImage):" << cvGetSize(pGrayImage).width << "," << cvGetSize(pGrayImage).height << std::endl;
+	//std::cout << "size(binaryImage):" << cvGetSize(pBinaryImage).width << "," << cvGetSize(pBinaryImage).height << std::endl;
+	std::cout << "depth:" << pSrcImage->depth << "," << pGrayImage->depth << "," << pBinaryImage->depth << std::endl;
+
+	cvNamedWindow("原图", CV_WINDOW_AUTOSIZE);
+	cvShowImage("原图", pSrcImage);
+	cvNamedWindow("二值图像", CV_WINDOW_AUTOSIZE);
+
+	int nThreshold = 0;
+	cvCreateTrackbar("trackbar", "二值图像", &nThreshold, 254, binaryimage_trackbar_callback);
+	binaryimage_trackbar_callback(1);
+
+	cvWaitKey(1);
+	//cvDestroyWindow("原图");
+	//cvDestroyWindow("二值图像");
+	//cvReleaseImage(&pSrcImage);
+	//cvReleaseImage(&pGrayImage);
+	//cvReleaseImage(&pBinaryImage);
+}

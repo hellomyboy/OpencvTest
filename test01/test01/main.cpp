@@ -23,7 +23,8 @@ int main(int argc, char** argv)
 
 	TestImage image;
 	//image.resizeTest();
-	image.cannyTest();
+	//image.cannyTest();
+	image.binaryImageTest();
 
 	cvWaitKey(0);
 	return 0;

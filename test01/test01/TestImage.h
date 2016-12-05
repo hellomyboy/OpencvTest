@@ -7,5 +7,6 @@ public:
 
 	void resizeTest();
 	void cannyTest();
+	void binaryImageTest();	//¶şÖµÍ¼Ïñ²âÊÔ
 };
 
