@@ -8,5 +8,7 @@ public:
 	void resizeTest();
 	void cannyTest();
 	void binaryImageTest();	//¶şÖµÍ¼Ïñ²âÊÔ
+
+	int imageCombineTest(); // Í¼ÏñÆ´½Ó
 };
 

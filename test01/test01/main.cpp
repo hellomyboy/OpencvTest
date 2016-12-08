@@ -1,6 +1,7 @@
 ﻿#include <cv.h>
 #include <highgui.h>
 #include "TestImage.h"
+#include "InputManager.h"
 using namespace std;
 
 extern void test_image_process();
@@ -24,9 +25,13 @@ int main(int argc, char** argv)
 	TestImage image;
 	//image.resizeTest();
 	//image.cannyTest();
-	image.binaryImageTest();
+	//image.binaryImageTest();
+	image.imageCombineTest();
 
-	cvWaitKey(0);
+	//InputManager im;
+	//im.run();
+
+	//cvWaitKey(0);
 	return 0;
 }
 
